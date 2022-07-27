@@ -1,11 +1,37 @@
 <?php
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
 class Produit {
 
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $nom;
+
+    /**
+     * @ORM\Column(type="float")
+     */
     private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Rayon", inversedBy="produits")
+     */
     private $rayon;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Fournisseur", mappedBy="produits")
+     */
     private $fournisseurs;
 
     public function getId(): int {

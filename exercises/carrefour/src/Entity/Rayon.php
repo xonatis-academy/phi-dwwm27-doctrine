@@ -1,9 +1,27 @@
 <?php
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
 class Rayon {
 
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     private $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
     private $nom;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Produit", mappedBy="rayon")
+     */
     private $produits;
 
     public function getId(): int {

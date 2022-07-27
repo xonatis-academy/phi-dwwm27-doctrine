@@ -1,9 +1,27 @@
 <?php
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
 class Fournisseur { 
     
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $nom;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Produit", inversedBy="fournisseurs")
+     */
     private $produits;
 
     public function getId(): int {
