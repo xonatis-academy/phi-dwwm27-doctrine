@@ -24,6 +24,11 @@ class Fournisseur {
      */
     private $produits;
 
+    public function __construct()
+    {
+        $this->produits = [];
+    }
+
     public function getId(): int {
         return $this->id;
     }
@@ -37,7 +42,7 @@ class Fournisseur {
         return $this;
     }
 
-    public function getProduits(): array {
+    public function getProduits() {
         return $this->produits;
     }
 
